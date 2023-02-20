@@ -1,5 +1,21 @@
-ISBN13 Check Digit Calculator
-This is a simple Ruby program that calculates the check digit for an ISBN13 number. It takes an ISBN13 number as input, removes any non-digit characters, verifies that the input is 12 digits long and contains only digits, multiplies each digit alternately by 1 and 3, takes the mod 10 of the sum, and subtracts the result from 10 to get the check digit. If the check digit is 10, it is replaced with 0. The program returns the complete ISBN13 number, including the check digit.
+This is a simple web application for calculating the check digit of an ISBN-13 barcode or validating an existing one. The application is built with Vue.js and uses the Quagga.js library for scanning barcodes. The backend is written in Ruby using the Sinatra framework.
 
 Usage
-To use the program, simply call the calculate_isbn13_check_digit method and pass in an ISBN13 number as a string or integer. For example:
+To use the application, simply enter the 12-digit ISBN number in the input field, and then click the "Calculate" button to generate the check digit. Alternatively, click the "Scan Barcode" button to use your device's camera to scan the barcode and automatically populate the ISBN input field. If the ISBN is valid, the complete 13-digit number will be displayed along with a "Copy" button to copy the number to the clipboard.
+
+Installation
+To install the application, clone the repository to your local machine. Then, navigate to the root directory of the project and install the necessary dependencies with the following command:
+
+
+
+```npm install```
+Next, start the application with the following command:
+
+```npm run serve```
+The application will be available at http://localhost:8080.
+
+Backend
+The backend of the application is written in Ruby and uses the Sinatra framework to provide an API endpoint for calculating the check digit. The code is contained in the app.rb file in the root directory of the project. The API endpoint can be accessed at the following URL:
+
+```http://localhost:4567/calculate_isbn13_check_digit/:isbn```
+where :isbn is the 12-digit ISBN number.
